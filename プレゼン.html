@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>卒業制作プレゼン</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      width: 90%;
+      max-width: 800px;
+      padding: 2rem;
+      box-sizing: border-box;
+      text-align: center;
+      background: #2e2e2e;
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #ff6347;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff826a;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide" id="slide1">
+    <h1>卒業制作で挑戦したいこと</h1>
+    <p>私は卒業制作で「スーパーマリオのような2Dアクションゲーム」を作成します。</p>
+  </div>
+
+  <div class="slide hidden" id="slide2">
+    <h1>なぜ2Dアクションゲーム？</h1>
+    <p>子供の頃から親しんできたゲームを、自分の力で再現・発展させたいからです。</p>
+  </div>
+
+  <div class="slide hidden" id="slide3">
+    <h1>使用予定の技術</h1>
+    <p>HTML5, JavaScript, およびゲーム用ライブラリ（例：Phaser.js）を使って開発します。</p>
+  </div>
+
+  <div class="slide hidden" id="slide4">
+    <h1>制作者</h1>
+    <p>氏名：<strong>あなたの名前</strong></p>
+  </div>
+
+  <div class="controls">
+    <button onclick="prevSlide()">← 戻る</button>
+    <button onclick="nextSlide()">進む →</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("hidden", i !== index);
+      });
+    }
+
+    function nextSlide() {
+      if (current < slides.length - 1) {
+        current++;
+        showSlide(current);
+      }
+    }
+
+    function prevSlide() {
+      if (current > 0) {
+        current--;
+        showSlide(current);
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") nextSlide();
+      if (e.key === "ArrowLeft") prevSlide();
+    });
+
+    showSlide(current);
+  </script>
+</body>
+</html>
+

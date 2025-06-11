@@ -1,0 +1,25 @@
+.image-gallery {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  flex: 1;
+  max-width: 30%;
+  text-align: center;
+  color: #ccc;
+}
+
+.image-item img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}

@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
@@ -9,49 +9,54 @@
     body {
       margin: 0;
       font-family: 'Noto Sans JP', sans-serif;
-      background: url("background.jpg") no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
       overflow: hidden;
     }
-
     .slide {
-      width: 90%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("background.jpg") no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .content {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 3rem;
       max-width: 800px;
-      padding: 2.5rem;
       text-align: center;
-      background: rgba(255, 255, 255, 0.85); /* 半透明白背景 */
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      transition: transform 0.5s ease, opacity 0.5s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-
-    .hidden {
-      display: none;
-    }
-
     h1 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: #e91e63;
       margin-bottom: 1rem;
     }
-
     p {
       font-size: 1.2rem;
       line-height: 1.8;
+      color: #333;
     }
-
     .controls {
       position: absolute;
       bottom: 2rem;
+      width: 100%;
       display: flex;
+      justify-content: center;
       gap: 1rem;
     }
-
     button {
       padding: 0.7rem 1.5rem;
       font-size: 1rem;
@@ -63,7 +68,6 @@
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-
     button:hover {
       background: #c2185b;
     }
@@ -71,43 +75,39 @@
 </head>
 <body>
 
-  <div class="slide" id="slide1">
-    <h1>卒業制作で挑戦したいこと</h1>
-    <p>私は卒業制作で<br><strong>全国の服の在庫を管理できるアプリ</strong>を作成したいと考えています。</p>
+  <div class="slide active" id="slide1">
+    <div class="content">
+      <h1>卒業制作で挑戦したいこと</h1>
+      <p>私は卒業制作で<br><strong>全国の服の在庫を管理できるアプリ</strong>を作成したいと考えています。</p>
+    </div>
   </div>
 
-  <div class="slide hidden" id="slide2">
-    <h1>アプリの目的</h1>
-    <p>アパレル業界の課題である<br><strong>在庫過多・販売機会の損失</strong>を解決するため、<br>リアルタイムで全国の在庫を見える化します。</p>
+  <div class="slide" id="slide2">
+    <div class="content">
+      <h1>このテーマにした理由</h1>
+      <p>アパレル業界でのアルバイト経験から<br><strong>在庫管理の煩雑さやロスの多さ</strong>を実感し、<br>それを改善したいと思ったためです。</p>
+    </div>
   </div>
 
-  <div class="slide hidden" id="slide3">
-    <h1>二次流通まで管理</h1>
-    <p>新品の在庫だけでなく、<br><strong>リユース品や古着などの二次流通</strong>まで一元的に管理できる仕組みを構築します。</p>
+  <div class="slide" id="slide3">
+    <div class="content">
+      <h1>服好き消費者の悩み</h1>
+      <p>欲しい服が見つかっても、<br><strong>どの店舗にあるかわからない</strong>、<br>探す時間がかかる、などの不便があります。</p>
+    </div>
   </div>
 
-  <div class="slide hidden" id="slide4">
-    <h1>活用予定の技術</h1>
-    <p>クラウドデータベース、在庫API連携、管理ダッシュボードなどを実装予定です。</p>
+  <div class="slide" id="slide4">
+    <div class="content">
+      <h1>このアプリの目的</h1>
+      <p>アパレル業界の課題である<br><strong>在庫過多・販売機会の損失</strong>を解決するため、<br>リアルタイムで全国の在庫を見える化します。</p>
+    </div>
   </div>
 
-  <div class="slide hidden" id="slide5">
-    <h1>このテーマにした理由</h1>
-    <p>アパレル業界でのアルバイト経験から<br><strong>在庫管理の煩雑さやロスの多さ</strong>を実感し、<br>それを改善したいと思ったためです。</p>
-  </div>
-
-  <div class="slide hidden" id="slide6">
-    <h1>このアプリを作ることのメリット</h1>
-    <p>
-      ・全国の在庫状況がリアルタイムでわかる<br>
-      ・二次流通との連携で在庫ロスを削減<br>
-      ・店舗間の連携・効率化による販売チャンスの拡大
-    </p>
-  </div>
-
-  <div class="slide hidden" id="slide7">
-    <h1>発表者</h1>
-    <p><strong>あなたの名前</strong></p>
+  <div class="slide" id="slide5">
+    <div class="content">
+      <h1>活用予定の技術</h1>
+      <p>クラウドデータベース、在庫API連携、<br>管理ダッシュボードなどを実装予定です。</p>
+    </div>
   </div>
 
   <div class="controls">
@@ -120,31 +120,23 @@
     let current = 0;
 
     function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("hidden", i !== index);
-      });
+      slides[current].classList.remove("active");
+      current = index;
+      slides[current].classList.add("active");
     }
 
     function nextSlide() {
-      if (current < slides.length - 1) {
-        current++;
-        showSlide(current);
-      }
+      if (current < slides.length - 1) showSlide(current + 1);
     }
 
     function prevSlide() {
-      if (current > 0) {
-        current--;
-        showSlide(current);
-      }
+      if (current > 0) showSlide(current - 1);
     }
 
     document.addEventListener("keydown", (e) => {
       if (e.key === "ArrowRight") nextSlide();
       if (e.key === "ArrowLeft") prevSlide();
     });
-
-    showSlide(current);
   </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Noto Sans JP', sans-serif;
-      background: radial-gradient(circle at 20% 30%, #ffe8ec, #ffddee, #f7faff);
+      background: url("background.jpg") no-repeat center center fixed;
       background-size: cover;
       color: #333;
       display: flex;
@@ -24,9 +24,9 @@
       max-width: 800px;
       padding: 2.5rem;
       text-align: center;
-      background: white;
+      background: rgba(255, 255, 255, 0.85); /* 半透明白背景 */
       border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       transition: transform 0.5s ease, opacity 0.5s ease;
     }
 
@@ -36,7 +36,7 @@
 
     h1 {
       font-size: 2rem;
-      color: #ff4081;
+      color: #e91e63;
       margin-bottom: 1rem;
     }
 
@@ -57,15 +57,15 @@
       font-size: 1rem;
       border: none;
       border-radius: 12px;
-      background: #ff80ab;
+      background: #e91e63;
       color: white;
       cursor: pointer;
       font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     button:hover {
-      background: #ff5e99;
+      background: #c2185b;
     }
   </style>
 </head>

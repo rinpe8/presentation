@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/rakuten-search', async (req, res) => {
-  const appId = 'あなたの楽天アプリID'; // ←ここは本番用に必ず設定
+  const appId = 'rinpei09058731562@outlook.jp'; // ←ここは本番用に必ず設定
   const query = req.query.q || '';
   const endpoint = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&applicationId=${appId}&keyword=${encodeURIComponent(query)}&hits=10`;
 

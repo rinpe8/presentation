@@ -1,26 +1,27 @@
 const express = require('express');
-const fetch = require('node-fetch');
 const cors = require('cors');
+const fetch = require('node-fetch');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-const APP_ID = process.env.APP_ID; // ←ここに注目！
-
 app.use(cors());
 
-app.get('/rakuten-search', async (req, res) => {
-  const keyword = req.query.q;
-  if (!keyword) return res.status(400).send('キーワード必須');
+const PORT = process.env.PORT || 3000;
 
-  const endpoint = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&applicationId=${APP_ID}&keyword=${encodeURIComponent(keyword)}&hits=10`;
+app.get('/', (req, res) => {
+  res.send('楽天検索APIへようこそ。例: /rakuten-search?q=青いシャツ');
+});
+
+app.get('/rakuten-search', async (req, res) => {
+  const appId = 'あなたの楽天アプリID'; // ←ここは本番用に必ず設定
+  const query = req.query.q || '';
+  const endpoint = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&applicationId=${appId}&keyword=${encodeURIComponent(query)}&hits=10`;
 
   try {
     const response = await fetch(endpoint);
     const data = await response.json();
     res.json(data);
   } catch (err) {
-    console.error(err);
-    res.status(500).send('検索失敗');
+    res.status(500).json({ error: '楽天APIへの接続に失敗しました' });
   }
 });
 

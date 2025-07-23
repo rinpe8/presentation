@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const APP_ID = 'あなたの楽天APIアプリID'; // ここを書き換える
+const APP_ID = process.env.APP_ID; // ←ここに注目！
 
 app.use(cors());
 

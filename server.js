@@ -7,12 +7,14 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
+// 楽天のアプリケーションID（取得したものをここに入れる）
+const appId = '1078956243794572138'; // ←これが有効ならOK
+
 app.get('/', (req, res) => {
   res.send('楽天検索APIへようこそ。例: /rakuten-search?q=青いシャツ');
 });
 
 app.get('/rakuten-search', async (req, res) => {
-  const appId = 1078956243794572138'; // ←ここは本番用に必ず設定
   const query = req.query.q || '';
   const endpoint = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&applicationId=${appId}&keyword=${encodeURIComponent(query)}&hits=10`;
 
